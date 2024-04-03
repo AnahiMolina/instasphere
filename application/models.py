@@ -18,6 +18,7 @@ class Publicacion(models.Model):
     fecha = models.DateTimeField()
     id_usuario = models.IntegerField(null = False)
     tipo = models.CharField(max_length=10, choices=tipos)
+    post = models.ImageField(upload_to='uploads/', null=True)
 
 class Comentarios(models.Model):
     fecha = models.DateTimeField()
@@ -26,8 +27,9 @@ class Comentarios(models.Model):
     id_usuario_comentario = models.IntegerField()
 
 estatus = (
-    ('image','Imagen'),
-    ('video','Video'),
+    ('enviado','Enviado'),
+    ('recibido','Recibido'),
+    ('leido','Leído'),
 )
 
 class Conversacion(models.Model):
